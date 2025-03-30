@@ -1,0 +1,9 @@
+{
+	"name": "phoenixcovid19datafactory",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d6ee7b24-9741-4ec4-ada4-9d4348dbb612",
+		"tenantId": "8b928044-38bf-48d3-a0ba-d7be9dda1193"
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"name": "ds_adls_processed_ecdc_casesDealths",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_phoenixcovid19datalake",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "processed"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "ecdc/casesDeaths",
+				"fileSystem": "proccessed"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
