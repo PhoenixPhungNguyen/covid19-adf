@@ -48,7 +48,7 @@ Covid 19 Data in Europe from website https://www.ecdc.europa.eu/en
 ![msedge_pa9FAT6ZBa](https://github.com/user-attachments/assets/8282dec9-c4c1-4149-b6b5-3d3605ea559a)
 ![image](https://github.com/user-attachments/assets/2365c748-89ab-40e3-a8ed-fa681ead52fd)
 
-**2. Databricks** 
+**2. Azure Databricks** 
 - Workspace:
   ![msedge_e2MI8ZkUDV](https://github.com/user-attachments/assets/1ca0274e-4947-4000-8fe5-60bbba9c06f7)
 - Compute:
