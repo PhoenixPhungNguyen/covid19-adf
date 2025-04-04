@@ -13,16 +13,15 @@
 
 ## Project Structure
 
-Directory structure:
-└── PhoenixPhungNguyen-covid19-adf/
-    ├── README.md
-    ├── publish_config.json
-    ├── dataflow/            - Contains dataflow
-    ├── dataset/             - Contains dataset definition
-    ├── factory/
-    ├── linkedService/
-    ├── pipeline/
-    └── trigger/
+- 📂 **PhoenixPhungNguyen-covid19-adf/**
+  - 📄 README.md
+  - 📄 publish_config.json
+  - 📂 dataflow/   
+  - 📂 dataset/    
+  - 📂 factory/
+  - 📂 linkedService/
+  - 📂 pipeline/
+  - 📂 trigger/
 
 ## Data Source
 Covid 19 Data in Europe from website https://www.ecdc.europa.eu/en
