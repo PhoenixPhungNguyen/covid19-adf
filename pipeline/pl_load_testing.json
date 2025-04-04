@@ -183,7 +183,7 @@
 			}
 		],
 		"folder": {
-			"name": "ingest"
+			"name": "load"
 		},
 		"annotations": [],
 		"lastPublishTime": "2025-03-30T04:30:51Z"

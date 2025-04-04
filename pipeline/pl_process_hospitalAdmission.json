@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "df_transform_hospitalAdmissions",
+				"name": "Transform hospitalAdmissions data",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {

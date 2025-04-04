@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "df_transform_testing",
+				"name": "Transform testing data",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
