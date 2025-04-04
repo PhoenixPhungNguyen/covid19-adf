@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "phoenixcovid19datafactory"
+		},
+		"ls_ablb_phoenixcovid19blobsa_connectionString": {
+			"value": ""
+		},
+		"ls_adls_phoenixcovid19datalake_accountKey": {
+			"value": ""
+		},
+		"ls_databricks_covid19_accessToken": {
+			"value": ""
+		},
+		"ls_sql_covid19_db_password": {
+			"value": ""
+		},
+		"ls_adls_phoenixcovid19datalake_properties_typeProperties_url": {
+			"value": "https://phoenixcovid19datalake.dfs.core.windows.net/"
+		},
+		"ls_databricks_covid19_properties_typeProperties_existingClusterId": {
+			"value": "0329-095530-a2g4ghn5"
+		},
+		"ls_sql_covid19_db_properties_typeProperties_server": {
+			"value": "phoenix-covid19-srv.database.windows.net"
+		},
+		"ls_sql_covid19_db_properties_typeProperties_database": {
+			"value": "covid19-db"
+		},
+		"ls_sql_covid19_db_properties_typeProperties_userName": {
+			"value": "adm"
+		}
+	}
+}
