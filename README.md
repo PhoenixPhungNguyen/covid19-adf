@@ -31,6 +31,24 @@ Covid 19 Data in Europe from website https://www.ecdc.europa.eu/en
 
 <img src="images/azure_datafactory_pipeline.png" width="400"/>
 
+Create a linked service to connect ADF with Azure Data Lake Storage Gen2
+
+<img src="images/covid19_dataset_lookup_linkservice_datalake.png" width="600"/>
+<img src="images/covid19_dataset_process_linkservice_datalake.png" width="600"/>
+<img src="images/covid19_dataset_raw_linkservice_datalake.png" width="600"/>
+
+Create a linked service to connect ADF with Azure Blob Storage
+
+<img src="images/covid19_dataset_source_linkservice_blob.png" width="600"/>
+
+Create a linked service to connect ADF with Azure SQL Database
+
+<img src="images/covid19_dataset_source_linkservice_blob.png" width="600"/>
+
+Create a new dataset
+
+<img src="images/covid19_dataset.png" width="400"/>
+
 -    Pipelines : ingest population, load case deaths, hospital admissions, testing, process population,case deaths, hospital admission, testing data
   
 <p align="left">
@@ -51,6 +69,7 @@ Covid 19 Data in Europe from website https://www.ecdc.europa.eu/en
       <img src="images/dataflow_testing.png" width="300"/>
       <img src="images/databrick_population.png" width="300"/>
 </p>
+
 **2. Azure Databricks** 
 
 - Workspace:
