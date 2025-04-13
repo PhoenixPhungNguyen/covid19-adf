@@ -105,7 +105,7 @@ Create linked service to connect ADF with Azure SQL Database
 **4. Azure SQL DB**
 - Create access control (IAM) and add role assignment
   
-<img src="images/covid19_IAM.png" width="700"/>
+<img src="images/covid19-reporting-app.png" width="700"/>
 
 <img src="images/azure_sqldb.png" width="700"/>
 
