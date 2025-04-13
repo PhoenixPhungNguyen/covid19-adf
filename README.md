@@ -31,21 +31,22 @@ Covid 19 Data in Europe from website https://www.ecdc.europa.eu/en
 
 <img src="images/azure_datafactory_pipeline.png" width="400"/>
 
-Create a linked service to connect ADF with Azure Data Lake Storage Gen2
+-    Linked Service
+Create linked service to connect ADF with Azure Data Lake Storage Gen2
 
 <img src="images/covid19_dataset_lookup_linkservice_datalake.png" width="600"/>
 <img src="images/covid19_dataset_process_linkservice_datalake.png" width="600"/>
 <img src="images/covid19_dataset_raw_linkservice_datalake.png" width="600"/>
 
-Create a linked service to connect ADF with Azure Blob Storage
+Create linked service to connect ADF with Azure Blob Storage
 
 <img src="images/covid19_dataset_source_linkservice_blob.png" width="600"/>
 
-Create a linked service to connect ADF with Azure SQL Database
+Create linked service to connect ADF with Azure SQL Database
 
 <img src="images/covid19_dataset_source_linkservice_blob.png" width="600"/>
 
-Create a new dataset
+-  Create new dataset
 
 <img src="images/covid19_dataset.png" width="400"/>
 
@@ -70,6 +71,10 @@ Create a new dataset
       <img src="images/databrick_population.png" width="300"/>
 </p>
 
+- Trigger:
+
+  <img src="images/covid19_trigger.png" width="700"/>
+  
 **2. Azure Databricks** 
 
 - Workspace:
@@ -88,6 +93,7 @@ Create a new dataset
  
 <img src="images/azure_raw_ecdc.png" width="700"/>
 <img src="images/azure_raw_population.png" width="700"/>
+
 -lookup
 
 <img src="images/azure_lookup.png" width="700"/>
@@ -97,6 +103,9 @@ Create a new dataset
 <img src="images/azure_process_population.png" width="700"/>
 
 **4. Azure SQL DB**
+- Create access control (IAM) and add role assignment
+  
+<img src="images/covid19_IAM.png" width="700"/>
 
 <img src="images/azure_sqldb.png" width="700"/>
 
