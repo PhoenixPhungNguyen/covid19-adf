@@ -1,17 +1,34 @@
 # Covid-19 Cases Data Analysis in Europe
 
 ## Overview
-This project focuses on analyzing the spread and impact of COVID-19 across European countries using publicly available datasets. 
-The goal is to uncover insights from the pandemic data through data preprocessing, visualization, and time-series analysis.
+This project analyzes the spread and impact of COVID-19 across European countries using publicly available datasets.  
+The goal is to uncover insights through data preprocessing, transformation, visualization, and time-series analysis.
 
-## Table of contents
+---
+## Table of Contents
+1. [Overview](#overview)  
+2. [Architecture](#architecture)  
+3. [Project Structure](#project-structure)  
+4. [Data Source](#data-source)  
+5. [Tech Stack](#tech-stack)  
+   - Azure Data Factory  
+   - Azure Databricks  
+   - Azure Data Lake Gen2  
+   - Azure SQL Database  
+   - Power BI  
+6. [Setup & Installation](#setup--installation)  
+7. [Data Pipeline Workflow](#data-pipeline-workflow)  
+8. [Data Transformation](#data-transformation)  
+9. [Challenges & Solutions](#challenges--solutions)  
+10. [Contributors](#contributors)  
+---
 
 ## Architecture
-
 <img src="images/7.covid19_architecture_prj.png"/>
 
-## Project Structure
+---
 
+## Project Structure
 - 📂 **PhoenixPhungNguyen-covid19-adf/**
   - 📄 README.md
   - 📄 publish_config.json
@@ -23,101 +40,93 @@ The goal is to uncover insights from the pandemic data through data preprocessin
   - 📂 pipeline/
   - 📂 trigger/
 
+---
+
 ## Data Source
-Covid 19 Data in Europe from website https://www.ecdc.europa.eu/en
+COVID-19 data in Europe from the [ECDC website](https://www.ecdc.europa.eu/en).
 
+## Data Pipeline Workflow
+**Ingestion:**  
+- Fetch COVID-19 data from ECDC and upload to Azure Blob Storage  
+- Move data into Azure Data Lake Gen2 (RAW zone)  
+
+**Storage:**  
+- Organize data into layers: Raw → Lookup → Process  
+
+**Transformation:**  
+- Use ADF Dataflows for initial cleaning  
+- Use Databricks (Spark) for advanced processing & enrichment  
+
+**Load:**  
+- Load the processed data into Azure SQL Database  
+
+**Visualization:**  
+- Connect Power BI to SQL DB for interactive dashboards
+
+---
+
+## Data Transformation
+- Clean missing values  
+- Aggregate daily data into weekly/monthly summaries  
+- Join with population data to calculate per-capita metrics  
+- Create derived metrics: positivity rate, hospitalization rate, mortality rate
+--- 
 ## Tech Stack
-**1. Azure Data Factory**
 
+### 1. Azure Data Factory
 <img src="images/azure_datafactory_pipeline.png" width="400"/>
 
--    Linked Service
-Create linked service to connect ADF with Azure Data Lake Storage Gen2
+- **Linked Services**: connect to ADLS Gen2, Blob Storage, and Azure SQL Database.  
+- **Datasets**: raw, lookup, process datasets.  
+- **Pipelines**: ingest population, load case deaths, hospital admissions, testing.  
+- **Dataflows**: transformations for case deaths, hospital admissions, testing.  
+- **Triggers**: orchestrating daily runs.  
 
-<img src="images/covid19_dataset_lookup_linkservice_datalake.png" width="600"/>
-<img src="images/covid19_dataset_process_linkservice_datalake.png" width="600"/>
-<img src="images/covid19_dataset_raw_linkservice_datalake.png" width="600"/>
+### 2. Azure Databricks
+<img src="images/databrick_workspace.png" width="700"/>  
+<img src="images/databrick_compute.png" width="700"/>
 
-Create linked service to connect ADF with Azure Blob Storage
-
-<img src="images/covid19_dataset_source_linkservice_blob.png" width="600"/>
-
-Create linked service to connect ADF with Azure SQL Database
-
-<img src="images/covid19_dataset_source_linkservice_blob.png" width="600"/>
-
--  Create new dataset
-
-<img src="images/covid19_dataset.png" width="400"/>
-
--    Pipelines : ingest population, load case deaths, hospital admissions, testing, process population,case deaths, hospital admission, testing data
-  
-<p align="left">
-      <img src="images/copydata_caseDeath.png" width="300"/>
-      <img src="images/copydata_hospitalAdmissionsDaily.png" width="300"/>
-      <img src="images/copydata_testing.png" width="300"/>
-</p>
- <img src="images/pipeline_caseDeaths.png"/>
- <img src="images/pipeline_hospitalAdmissions.png"/>
- <img src="images/pipeline_testing.png"/>
- <img src="images/copydata_population.png"/>
-  
--    Data flows : Transform case dealths, hospital admissions and testing data
-  
-<p align="left">   
-      <img src="images/dataflow_caseDeaths.png" width="300"/>
-      <img src="images/dataflow_hospitalAdmission.png" width="300"/>
-      <img src="images/dataflow_testing.png" width="300"/>
-      <img src="images/databrick_population.png" width="300"/>
-</p>
-
-- Trigger:
-
-  <img src="images/covid19_trigger.png" width="700"/>
-  
-**2. Azure Databricks** 
-
-- Workspace:
-  
-   <img src="images/databrick_workspace.png" width="700"/>
-- Compute:
-  
-   <img src="images/databrick_compute.png" width="700"/>
-
-**3. Azure Data Lake Gen 2**
-
-- resource group
-  
-  <img src="images/azure_resourcegroup.png" width="700"/>
-- raw
- 
-<img src="images/azure_raw_ecdc.png" width="700"/>
-<img src="images/azure_raw_population.png" width="700"/>
-
--lookup
-
-<img src="images/azure_lookup.png" width="700"/>
-- process
-  
+### 3. Azure Data Lake Gen2
+Organized into raw, lookup, and process layers.  
+<img src="images/azure_raw_ecdc.png" width="700"/>  
 <img src="images/azure_process_ecdc.png" width="700"/>
-<img src="images/azure_process_population.png" width="700"/>
 
-**4. Azure SQL DB**
-- Create access control (IAM) and add role assignment
-  
-<img src="images/covid19-reporting-app.png" width="700"/>
-
+### 4. Azure SQL Database
+Data loaded into SQL DB for querying and analysis.  
 <img src="images/azure_sqldb.png" width="700"/>
 
-**5. Power BI**
+### 5. Power BI
+Interactive dashboards for trends, testing, and country-level analysis.  
+<img src="images/covid19_dashboard1.png"/>  
+<img src="images/covid19_dashboard2.png"/>  
+<img src="images/covid19_dashboard3.png"/>  
 
-- **Covid trends by country**
-  
-<img src="images/covid19_dashboard1.png"/>
-<img src="images/covid19_dashboard2.png"/>
+---
+## Setup & Installation
+1. Clone the repository:
+git clone https://github.com/yourusername/PhoenixPhungNguyen-covid19-adf.git
 
-- **Covid testing cases**
-  
-<img src="images/covid19_dashboard3.png"/>
- 
+2. Upload datasets into Azure Data Lake Gen2:
+- /raw/covid19/
+- /raw/population/
+- /lookup/
+- /process/
+
+3. Import Azure Data Factory pipelines from /pipeline folder into Azure Portal  
+4. Import Databricks notebooks into workspace  
+5. Configure Azure SQL Database connection in ADF  
+6. Open Power BI Dashboard in /powerbi to visualize insights
+
+---
+
+## Challenges & Solutions
+- **Missing values in datasets** → Handled using Spark to fill nulls with averages or forward fill.
+- **Large datasets with multiple CSV files** → Optimized with partitioning in Azure Data Lake Gen2.
+- **Pipeline failures due to connection issues** → Configured retry policy in Azure Data Factory.
+- **Slow Power BI reports** → Created pre-aggregated tables in Azure SQL DB to improve performance.
+---
+
+## Contributors
+👤 **Phung Nguyen Thi Minh (PhoenixNguyen)**  
+Data Engineer | SQL | Python | Azure | Power BI
 
