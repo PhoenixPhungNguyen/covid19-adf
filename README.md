@@ -45,7 +45,32 @@ The goal is to uncover insights through data preprocessing, transformation, visu
 ## Data Source
 COVID-19 data in Europe from the [ECDC website](https://www.ecdc.europa.eu/en).
 
+ECDC:
+- Confirmed cases
+- Mortality
+- Hospitalization/ ICU Cases
+- Testing Numbers
+
+Eurostat:
+- Population by age
+
+## Data Lake
+Contains these data:
+- Confirmed cases
+- Mortality
+- Hospitalization/ ICU Cases
+- Testing Numbers
+- Country’s population by age group
+
+## Data Warehouse
+Contains these data:
+- Confirmed cases
+- Mortality
+- Hospitalization/ ICU Cases
+- Testing Numbers
+
 ## Data Pipeline Workflow
+
 **Ingestion:**  
 - Fetch COVID-19 data from ECDC and upload to Azure Blob Storage  
 - Move data into Azure Data Lake Gen2 (RAW zone)  
@@ -62,9 +87,8 @@ COVID-19 data in Europe from the [ECDC website](https://www.ecdc.europa.eu/en).
 
 **Visualization:**  
 - Connect Power BI to SQL DB for interactive dashboards
-
+  
 ---
-
 ## Data Transformation
 - Clean missing values  
 - Aggregate daily data into weekly/monthly summaries  
@@ -127,6 +151,6 @@ git clone https://github.com/yourusername/PhoenixPhungNguyen-covid19-adf.git
 ---
 
 ## Contributors
-👤 **Phung Nguyen Thi Minh (PhoenixNguyen)**  
+👤 **Thi Minh Phung Nguyen (PhoenixNguyen)**  
 Data Engineer | SQL | Python | Azure | Power BI
 
