@@ -94,6 +94,11 @@ Contains these data:
 - Aggregate daily data into weekly/monthly summaries  
 - Join with population data to calculate per-capita metrics  
 - Create derived metrics: positivity rate, hospitalization rate, mortality rate
+  <img src="images/TransformCasesAnd DeathsData.png" width="600"/>
+  <img src="images/TransformHospitalAdmissionsData.png" width="600"/>
+  <img src="images/TransformHospitalAdmissionsData2.png" width="600"/>
+  <img src="images/TransformPopulation byAgeData.png" width="600"/>
+  <img src="images/TransformTestingData.png" width="600"/>
 --- 
 ## Tech Stack
 
