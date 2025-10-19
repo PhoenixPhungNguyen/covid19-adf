@@ -101,39 +101,57 @@ Contains these data:
   <img src="images/TransformTestingData.png" width="600"/>
 --- 
 ## Tech Stack
+### 1. Azure Data Lake Gen2
+Organized into raw, lookup, and process layers.  
+<img src="images/azure_raw_ecdc.png" width="700"/>  
+<img src="images/azure_process_ecdc.png" width="700"/>
 
-### 1. Azure Data Factory
+### 2. Azure Data Factory
 <img src="images/azure_datafactory_pipeline.png" width="400"/>
 
-- **Linked Services**: connect to ADLS Gen2, Blob Storage, and Azure SQL Database.  
-- **Datasets**: raw, lookup, process datasets.  
+- **Linked Services**: connect to ADLS Gen2, Blob Storage, and Azure SQL Database.
+  
+- **Datasets**: raw, lookup, process datasets.
+   
 - **Pipelines**
-Ingest population, load case deaths, hospital admissions, and testing.
+    
+    Ingest population, load case deaths, hospital admissions, and testing.
 
-<div style="text-align: center; margin-bottom: 30px;">
-  <p>Case Deaths Pipeline</p>
-  <img src="images/pipeline_caseDeaths.png" width="700">
-</div>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <p>Case Deaths Pipeline</p>
+      <img src="images/pipeline_caseDeaths.png" width="700">
+    </div>
 
-<div style="text-align: center; margin-bottom: 30px;">
-  <p>Hospital Admissions Pipeline</p>
-  <img src="images/pipeline_hospitalAdmissions.png" width="700">
-</div>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <p>Hospital Admissions Pipeline</p>
+      <img src="images/pipeline_hospitalAdmissions.png" width="700">
+    </div>
 
-<div style="text-align: center; margin-bottom: 30px;">
-  <p>Testing Pipeline</p>
-  <img src="images/pipeline_testing.png" width="700">
-</div>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <p>Testing Pipeline</p>
+      <img src="images/pipeline_testing.png" width="700">
+    </div>
+
 
 - **Dataflows**: transformations for case deaths, hospital admissions, testing.
+  
 <p align="center">
    <img src="images/dataflow_caseDeaths.png" width="30%"/>
    <img src="images/dataflow_hospitalAdmission.png" width="30%"/>
    <img src="images/dataflow_testing.png" width="30%"/>
 </p>
-- **Triggers**: orchestrating daily runs.  
 
-### 2. Azure Databricks
+- **Triggers**: orchestrating daily runs.
+
+    - **Type:** Schedule trigger (daily at 6 AM)  
+    - **Purpose:** Automatically run all data pipelines (Population, Case Deaths, Hospital Admissions, Testing)  
+    - **Integration:** Each pipeline runs a Databricks notebook and updates Azure SQL Database  
+    - **Screenshot:**  
+      <div style="text-align: center; margin-top: 10px;">
+        <img src="images/covid19_trigger.png" width="700"/>
+      </div>
+
+### 3. Azure Databricks
 <div style="text-align: center; margin-bottom: 30px;">
   <p>Compute</p>
   <img src="images/databrick_compute.png" width="700"/>
@@ -147,15 +165,12 @@ Ingest population, load case deaths, hospital admissions, and testing.
   <img src="images/databrick_population.png" width="30%"/>
 </div>
 
-
-
-### 3. Azure Data Lake Gen2
-Organized into raw, lookup, and process layers.  
-<img src="images/azure_raw_ecdc.png" width="700"/>  
-<img src="images/azure_process_ecdc.png" width="700"/>
-
 ### 4. Azure SQL Database
-Data loaded into SQL DB for querying and analysis.  
+- **Access Control(IAM)**
+<img src="images/covid19_IAM.png" width="700"/>
+<img src="images/covid19-reporting-app.png" width="700"/>
+
+- **Data loaded into SQL DB for querying and analysis.**  
 <img src="images/azure_sqldb.png" width="700"/>
 
 ### 5. Power BI
