@@ -107,13 +107,47 @@ Contains these data:
 
 - **Linked Services**: connect to ADLS Gen2, Blob Storage, and Azure SQL Database.  
 - **Datasets**: raw, lookup, process datasets.  
-- **Pipelines**: ingest population, load case deaths, hospital admissions, testing.  
-- **Dataflows**: transformations for case deaths, hospital admissions, testing.  
+- **Pipelines**
+Ingest population, load case deaths, hospital admissions, and testing.
+
+<div style="text-align: center; margin-bottom: 30px;">
+  <p>Case Deaths Pipeline</p>
+  <img src="images/pipeline_caseDeaths.png" width="700">
+</div>
+
+<div style="text-align: center; margin-bottom: 30px;">
+  <p>Hospital Admissions Pipeline</p>
+  <img src="images/pipeline_hospitalAdmissions.png" width="700">
+</div>
+
+<div style="text-align: center; margin-bottom: 30px;">
+  <p>Testing Pipeline</p>
+  <img src="images/pipeline_testing.png" width="700">
+</div>
+
+- **Dataflows**: transformations for case deaths, hospital admissions, testing.
+<p align="center">
+   <img src="images/dataflow_caseDeaths.png" width="30%"/>
+   <img src="images/dataflow_hospitalAdmission.png" width="30%"/>
+   <img src="images/dataflow_testing.png" width="30%"/>
+</p>
 - **Triggers**: orchestrating daily runs.  
 
 ### 2. Azure Databricks
-<img src="images/databrick_workspace.png" width="700"/>  
-<img src="images/databrick_compute.png" width="700"/>
+<div style="text-align: center; margin-bottom: 30px;">
+  <p>Compute</p>
+  <img src="images/databrick_compute.png" width="700"/>
+</div>
+<div style="text-align: center; margin-bottom: 30px;">
+  <p>Workspace</p>
+  <img src="images/databrick_workspace.png" width="700"/>
+</div>
+<div style="text-align: center; margin-bottom: 30px;">
+  <p>Population</p>
+  <img src="images/databrick_population.png" width="30%"/>
+</div>
+
+
 
 ### 3. Azure Data Lake Gen2
 Organized into raw, lookup, and process layers.  
