@@ -110,9 +110,34 @@ Organized into raw, lookup, and process layers.
 <img src="images/azure_datafactory_pipeline.png" width="400"/>
 
 - **Linked Services**: connect to ADLS Gen2, Blob Storage, and Azure SQL Database.
-  
-- **Datasets**: raw, lookup, process datasets.
    
+- **Datasets**: raw, lookup, process datasets.
+
+   <div style="text-align: center; margin-bottom: 30px;">
+      <p>Look up DataSet</p>
+      <img src="images/covid19_dataset_lookup_linkservice_datalake.png" width="700">
+    </div>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+      <p>Process DataSet</p>
+      <img src="images/covid19_dataset_process_linkservice_datalake.png" width="700">
+    </div>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+      <p>Raw DataSet</p>
+      <img src="images/covid19_dataset_raw_linkservice_datalake.png" width="700">
+    </div>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+      <p>Source DataSet</p>
+      <img src="images/covid19_dataset_source_linkservice_blob.png" width="700">
+    </div>
+
+   <div style="text-align: center; margin-bottom: 30px;">
+      <p>SQL DataSet</p>
+      <img src="images/covid19_dataset_sql_linkservice_db.png" width="700">
+    </div>
+    
 - **Pipelines**
     
     Ingest population, load case deaths, hospital admissions, and testing.
