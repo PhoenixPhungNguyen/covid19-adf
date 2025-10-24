@@ -177,6 +177,22 @@ Organized into raw, lookup, and process layers.
       </div>
 
 ### 3. Azure Databricks
+- **Create Databrics Workspace**: Resource Group: Search 'Databrick' in Market Place and choose 'Azure Databricks' --> Create
+  Name: covid19-databrics-ws --> Pricing Tier: Standard --> Review +Create
+- **Register Application**
+  +   Search Microsoft Entra Id -> Choose Tab Management --> App Registration --> Register An Application:
+  Name: covid19-reporting-app. After creating application, Application (Client) ID and Directory( Tenant) ID will be generated.( (Copy and use for Databricks later))
+  +   Choose Tab: Certificates and Secrets: Add a Client Secret--> Description: covid19-reporting.After adding a client Secret, value of secret will be generated. (Copy and use for Databricks later)
+    
+<img src="images/covid19-reporting-app.png" width="700"/>
+
+- **Access Control(IAM)**: Grant permission for phoenix-covid19-app to modify data in phoenixcovid19datalake for Databricks.
+  Choose phoenixcovid19datalake --> Grant add Role Assignment:
+  +    Tab Role: Select Storage Blob Data Contributor
+  +    Tab Members: Select Members: covid19-reporting-app
+    
+<img src="images/covid19_IAM.png" width="700"/>
+
 <div style="text-align: center; margin-bottom: 30px;">
   <p>Compute</p>
   <img src="images/databrick_compute.png" width="700"/>
@@ -191,9 +207,6 @@ Organized into raw, lookup, and process layers.
 </div>
 
 ### 4. Azure SQL Database
-- **Access Control(IAM)**
-<img src="images/covid19_IAM.png" width="700"/>
-<img src="images/covid19-reporting-app.png" width="700"/>
 
 - **Data loaded into SQL DB for querying and analysis.**  
 <img src="images/azure_sqldb.png" width="700"/>
