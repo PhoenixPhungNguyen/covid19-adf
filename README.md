@@ -177,12 +177,10 @@ Organized into raw, lookup, and process layers.
       </div>
 
 ### 3. Azure Databricks
-- **Create Databrics Workspace**: Resource Group: Search 'Databrick' in Market Place and choose 'Azure Databricks' --> Create
-  Name: covid19-databrics-ws --> Pricing Tier: Standard --> Review +Create
 - **Register Application**
   +   Search Microsoft Entra Id -> Choose Tab Management --> App Registration --> Register An Application:
-  Name: covid19-reporting-app. After creating application, Application (Client) ID and Directory( Tenant) ID will be generated.( (Copy and use for Databricks later))
-  +   Choose Tab: Certificates and Secrets: Add a Client Secret--> Description: covid19-reporting.After adding a client Secret, value of secret will be generated. (Copy and use for Databricks later)
+  Name: covid19-reporting-app. After creating Application, Application (Client) ID and Directory ( Tenant) ID will be generated. ((Copy and use for Databricks later))
+  +   Choose Tab: Certificates and Secrets: Add a Client Secret--> Description: covid19-reporting. After adding a client Secret, value of secret will be generated. (Copy and use for Databricks later)
     
 <img src="images/covid19-reporting-app.png" width="700"/>
 
@@ -192,6 +190,9 @@ Organized into raw, lookup, and process layers.
   +    Tab Members: Select Members: covid19-reporting-app
     
 <img src="images/covid19_IAM.png" width="700"/>
+
+- **Create Databricks Workspace**: Resource Group: Search 'Databrick' in Market Place and choose 'Azure Databricks' --> Create
+  Name: covid19-databrics-ws --> Pricing Tier: Standard --> Review +Create
 
 <div style="text-align: center; margin-bottom: 30px;">
   <p>Compute</p>
@@ -208,6 +209,10 @@ Organized into raw, lookup, and process layers.
 
 ### 4. Azure SQL Database
 
+- **Create Azure SQL Database**: Market Place : Search 'SQL Database' --> Create SQL Database
+  Database Name: covid19-db --> Resource Group: phoenixcovid19 --> Create Server Name: phoenix-covid19-srv (use for hosting this Database)
+  --> Authentication Method: Use SQL Authentication --> Input Server Admin Login, Password, Confirm Password --> Connectivity Method: **Public Endpoint** (allow SQL DB to access public) --> Allow Azure Services and Resource to access this server: **Yes** --> Add Current IP Address: **Yes**
+  
 - **Data loaded into SQL DB for querying and analysis.**  
 <img src="images/azure_sqldb.png" width="700"/>
 
