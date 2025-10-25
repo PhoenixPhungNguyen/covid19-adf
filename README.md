@@ -194,24 +194,28 @@ Organized into raw, lookup, and process layers.
 - **Create Databricks Workspace**: Resource Group: Search 'Databrick' in Market Place and choose 'Azure Databricks' --> Create
   Name: covid19-databrics-ws --> Pricing Tier: Standard --> Review +Create
 
-<div style="text-align: center; margin-bottom: 30px;">
-  <p>Compute</p>
-  <img src="images/databrick_compute.png" width="700"/>
-</div>
-<div style="text-align: center; margin-bottom: 30px;">
-  <p>Workspace</p>
-  <img src="images/databrick_workspace.png" width="700"/>
-</div>
-<div style="text-align: center; margin-bottom: 30px;">
-  <p>Population</p>
-  <img src="images/databrick_population.png" width="30%"/>
-</div>
+   + Compute: Create Spark Engine use for running NoteBook.  New Compute : MattaPhungNguyenCluster --> Choose Single Node --> Databrick Runtime Version: Runtime 11.3 LTS( Scala 2.12, Spark 3.3.0)
+--> Node Type: Standard_DS3_v2  14GB Memory 4 Cores --> Create Compute
+      
+   <img src="images/databrick_compute.png" width="700"/>
+   
+   + Workspace:
+     
+   <img src="images/databrick_workspace.png" width="700"/>
+   
+   + Population:      
+   <img src="images/databrick_population.png" width="30%"/>
 
 ### 4. Azure SQL Database
 
-- **Create Azure SQL Database**: Market Place : Search 'SQL Database' --> Create SQL Database
+- **Create Azure SQL Database**
+   +   Market Place : Search 'SQL Database' --> Create SQL Database
   Database Name: covid19-db --> Resource Group: phoenixcovid19 --> Create Server Name: phoenix-covid19-srv (use for hosting this Database)
   --> Authentication Method: Use SQL Authentication --> Input Server Admin Login, Password, Confirm Password --> Connectivity Method: **Public Endpoint** (allow SQL DB to access public) --> Allow Azure Services and Resource to access this server: **Yes** --> Add Current IP Address: **Yes**
+
+   + Connect to Azure SQL Database: Choose Tab: Query Editor (Preview) --> Input UserName and Password 
+   + Create tables: covid_reporting.cases_and_deaths, covid_reporting.hospital_admissions_daily, covid_reporting.testing
+  (Run create_covid_tables_ddl.sql)
   
 - **Data loaded into SQL DB for querying and analysis.**  
 <img src="images/azure_sqldb.png" width="700"/>
