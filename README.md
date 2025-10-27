@@ -143,20 +143,24 @@ Organized into raw, lookup, and process layers.
     Ingest population, load case deaths, hospital admissions, and testing.
 
     <div style="text-align: center; margin-bottom: 30px;">
-      <p>Case Deaths Pipeline</p>
+      <p>Ingest Case Deaths Pipeline</p>
       <img src="images/pipeline_caseDeaths.png" width="700">
     </div>
 
     <div style="text-align: center; margin-bottom: 30px;">
-      <p>Hospital Admissions Pipeline</p>
+      <p>Ingest Hospital Admissions Pipeline</p>
       <img src="images/pipeline_hospitalAdmissions.png" width="700">
     </div>
 
     <div style="text-align: center; margin-bottom: 30px;">
-      <p>Testing Pipeline</p>
+      <p>Ingest Testing Pipeline</p>
       <img src="images/pipeline_testing.png" width="700">
     </div>
 
+    <div style="text-align: center; margin-bottom: 30px;">
+      <p>Ingest Population Pipeline</p>
+      <img src="images/copydata_population.png" width="700">
+    </div>
 
 - **Dataflows**: transformations for case deaths, hospital admissions, testing.
   
@@ -164,6 +168,15 @@ Organized into raw, lookup, and process layers.
    <img src="images/dataflow_caseDeaths.png" width="30%"/>
    <img src="images/dataflow_hospitalAdmission.png" width="30%"/>
    <img src="images/dataflow_testing.png" width="30%"/>
+</p>
+
+- **Copy Data**:  
+  Load the processed data of case deaths, hospital admissions, testing into Azure SQL Database
+  
+<p align="center">
+   <img src="images/copydata_caseDeath.png" width="25%"/>
+   <img src="images/copydata_hospitalAdmissionsDaily.png" width="25%"/>
+   <img src="images/copydata_testing.png" width="25%"/>
 </p>
 
 - **Triggers**: orchestrating daily runs.
@@ -175,6 +188,13 @@ Organized into raw, lookup, and process layers.
       <div style="text-align: center; margin-top: 10px;">
         <img src="images/covid19_trigger.png" width="700"/>
       </div>
+
+- **Alerts and Metrics**
+The system monitors pipeline execution and sends email notifications whenever a failure occurs. Alert rules and thresholds can be configured to track metrics such as pipeline duration, success/failure status, and data quality. This ensures timely detection of issues and proactive response to maintain ETL reliability.
+<div style="text-align: center; margin-top: 10px;">
+   <img src="images/alert_mail_config.png" width="500"/>
+   <img src="images/alert_and_metrics.png" width="850"/>
+</div>
 
 ### 3. Azure Databricks
 - **Register Application**
@@ -203,8 +223,12 @@ Organized into raw, lookup, and process layers.
      
    <img src="images/databrick_workspace.png" width="700"/>
    
-   + Population:      
+   + Processed Population Pipeline:      
    <img src="images/databrick_population.png" width="30%"/>
+
+   + Pipeline Orchestration:
+   The parent pipeline uses **Execute Pipeline** to first run the "Ingest population" pipeline and then call the "Processed population" pipeline, ensuring       proper sequence and modular ETL design.
+   <img src="images/execute_pipeline_population.png" width="700"/>
 
 ### 4. Azure SQL Database
 
